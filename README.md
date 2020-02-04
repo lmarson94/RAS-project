@@ -1,16 +1,14 @@
 # Robotics and Autonomous Systems project
 
 <p align="center">
-    <a href="http://www.youtube.com/watch?feature=player_embedded&v=DHLYpqP2aGI" target="_blank"><img src="http://img.youtube.com/vi/DHLYpqP2aGI/0.jpg" 
-    alt="Map exploration" width="320" height="180"/></a>
+    [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/DHLYpqP2aGI/0.jpg)](http://www.youtube.com/watch?v=DHLYpqP2aGI)
 </p>
 <p align="center">
     Map exploration video
 </p>
 
 <p align="center">
-    <a href="http://www.youtube.com/watch?feature=player_embedded&v=-L3Hin3oR7I" target="_blank"><img src="http://img.youtube.com/vi/-L3Hin3oR7I/0.jpg" 
-    alt="Object rescue" width="320" height="180"/></a>
+    [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/L3Hin3oR7I/0.jpg)](http://www.youtube.com/watch?v=L3Hin3oR7I)
 </p>
 <p align="center">
     Object rescue video
