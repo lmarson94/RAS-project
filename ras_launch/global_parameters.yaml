@@ -1,0 +1,15 @@
+odometry:
+    /params/updateFrequency: 10
+    /params/b: 0.22
+    /params/r: 0.049
+    /params/countsPerRevolution: 1185.458
+
+statemachine:
+    /should_go_to_obj: False
+
+# /x: 2.1
+# /y: 2
+# /theta: 4.71
+/x: 0.207
+/y: 0.2202
+/theta: 1.57

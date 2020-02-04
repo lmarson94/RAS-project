@@ -1,0 +1,4 @@
+# request
+string gripper_command  # messages available
+---
+bool success  # True if Arduino is connected, else False

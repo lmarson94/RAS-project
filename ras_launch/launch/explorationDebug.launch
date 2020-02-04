@@ -1,0 +1,26 @@
+<launch>
+  <rosparam command="load" file="$(find ras_launch)/global_parameters.yaml" />
+
+  <!-- Load map file -->
+  <param name="map_file" value="$(find occupancy_grid)/maps/$(arg map_file)"/>
+
+  <!-- Load OccupancyGrid -->
+  <node pkg="occupancy_grid" type="occupancy_grid" name="occupancy_grid"/>
+
+  <node pkg="occupancy_grid" type="addMarker" name="Object_marker"/>
+
+  <!-- Load Walls -->
+  <node pkg="map_representation" type="map_representation" name="map_representation" />
+
+  <!-- Path planning -->
+  <node pkg="ras_path_planning" type="astar.py" name="astar"/>
+
+  <!-- Pure pursuit -->
+  <node pkg="pure_pursuit_controller" type="pure_pursuit_server" name="pure_pursuit_server"/>
+  <!-- Load pure pursuit controller parameters -->
+  <rosparam command="load" file="$(find pure_pursuit_controller)/controller_params.yaml" />
+
+  <!-- Exploration Server and Client -->
+  <!--<node pkg="map_exploration" type="exploration_server" name="exploration_server" output="screen"/>
+  <node pkg="map_exploration" type="exploration_client" name="exploration_client" />-->
+</launch>

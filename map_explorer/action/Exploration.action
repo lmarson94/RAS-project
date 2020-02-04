@@ -1,0 +1,8 @@
+#goal definition
+occupancy_grid/GridMap gridmap
+---
+#result definition
+int32[] result
+---
+#feedback
+nav_msgs/OccupancyGrid feedback

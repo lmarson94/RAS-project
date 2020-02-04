@@ -1,0 +1,14 @@
+r: 0.20
+rInner: 0.03
+stopDistance: 0.1
+switchToDriveThreshold: 0.1
+switchToTurnThreshold: 0.5
+finishOrientingThreshold: 0.15
+desiredV: 0.12 #0.12
+lengthAddition: 0.20
+Kp: 1.2
+Ki: 0.0
+Kd: 0.0
+alpha: 0.08
+desiredHeading: 1.5
+closeToGoalDist: 0.45

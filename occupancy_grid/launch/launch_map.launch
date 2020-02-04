@@ -1,0 +1,39 @@
+<launch>
+  <rosparam command="load" file="$(find ras_launch)/global_parameters.yaml" />
+  <!-- Load map file -->
+  <param name="map_file" value="$(find occupancy_grid)/maps/$(arg map_file)"/>
+
+  <!-- run the motors -->
+  <!--<node pkg="phidgets" type="motor" name="right">
+    <param name="serial" value="490597"/>
+    <param name="name" value="right"/>
+    <param name="frequency" value="10"/>
+    <param name="invert_motor" value="true"/>
+  </node>
+  <node pkg="phidgets" type="motor" name="left">
+    <param name="serial" value="469411"/>
+    <param name="name" value="left"/>
+    <param name="frequency" value="10"/>
+  </node>-->
+
+  <!-- load the odometry node -->
+  <!-- <node pkg="ras_localization" type="odometry" name="odometry"/> -->
+  <!-- load pf node -->
+  <!-- <node pkg="ras_localization" type="particle_filter" name="particle_filter" /> -->
+
+  <!-- Load Walls -->
+  <node pkg="map_representation" type="map_representation" name="map_representation">
+  </node>
+
+  <!-- Load OccupancyGrid -->
+  <node pkg="occupancy_grid" type="occupancy_grid" name="occupancy_grid">
+  </node>
+
+  <!-- Path planning -->
+  <node pkg="ras_path_planning" type="astar.py" name="astar" output="screen">
+  </node>
+
+  <!-- run rviz -->
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find occupancy_grid)/rviz/rviz_gridmap_path_planning.rviz"/>
+
+</launch>

@@ -1,0 +1,22 @@
+<launch>
+  <rosparam command="load" file="$(find ras_launch)/global_parameters.yaml" />
+  <!-- run the motors -->
+  <node pkg="phidgets" type="motor" name="right">
+    <param name="serial" value="490597"/>
+    <param name="name" value="right"/>
+    <param name="frequency" value="10"/>
+    <param name="invert_motor" value="true"/>
+  </node>
+  <node pkg="phidgets" type="motor" name="left">
+    <param name="serial" value="469411"/>
+    <param name="name" value="left"/>
+    <param name="frequency" value="10"/>
+  </node>
+
+  <!-- load the odometry node -->
+  <node pkg="ras_localization" type="odometry" name="odometry" output="screen" />
+  
+  <!-- Load pure pursuit controller parameters -->
+  <rosparam command="load" file="$(find pure_pursuit_controller)/controller_params.yaml" />
+
+</launch>

@@ -1,0 +1,8 @@
+# Goal definition
+nav_msgs/Path intermediatePoints
+---
+# Result definition
+geometry_msgs/Vector3 pose
+---
+# Feedback
+bool isCloseToGoal

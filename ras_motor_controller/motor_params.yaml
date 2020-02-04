@@ -1,0 +1,5 @@
+ctd: 3000
+gains_left_motor: {Kd: 0.0, Ki: 17.0, Kp: 2.0}
+gains_right_motor: {Kd: 0.0, Ki: 17.0, Kp: 2.32}
+w_max: 18.5
+desired_heading: 0.0

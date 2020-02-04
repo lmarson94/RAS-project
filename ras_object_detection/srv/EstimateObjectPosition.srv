@@ -1,0 +1,5 @@
+# request
+sensor_msgs/PointCloud2 inputCloud  # image to be classified
+object_detection/msg_objects_detected objectList
+---
+ras_object_detection/PointStampedArray positions

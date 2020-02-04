@@ -1,0 +1,62 @@
+<launch>
+  <rosparam command="load" file="$(find ras_launch)/global_parameters.yaml" />
+
+  <!-- run the motors -->
+  <node pkg="phidgets" type="motor" name="right">
+    <param name="serial" value="490597"/>
+    <param name="name" value="right"/>
+    <param name="frequency" value="10"/>
+    <param name="invert_motor" value="true"/>
+  </node>
+  <node pkg="phidgets" type="motor" name="left">
+    <param name="serial" value="469411"/>
+    <param name="name" value="left"/>
+    <param name="frequency" value="10"/>
+  </node>
+
+  <!-- load the odometry node -->
+  <node pkg="ras_localization" type="odometry" name="odometry"/>
+
+  <!-- load the tf node and static transforms-->
+  <node pkg="ras_tf" type="broadcaster" name="broadcaster" />
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" args="-0.075 0 0.2275 0 0 0 base_link laser 10"/>
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_camera" args="0.0925 0 0.18 -1.5708 0 -1.9199 base_link camera 10"/>
+
+  <!-- Load Camera -->
+  <!--include file="$(find ras_camera)/launch/ras_camera_nodelet.launch" /-->
+
+  <!-- load the motors controller node -->
+  <node pkg="ras_motor_controller" type="ras_motor_controller" name="ras_motor_controller" output="screen">
+    <rosparam command="load" file="$(find ras_motor_controller)/motor_params.yaml" />
+  </node>
+
+  <!-- Load map file -->
+  <param name="map_file" value="$(find occupancy_grid)/maps/$(arg map_file)"/>
+
+  <!-- Load OccupancyGrid -->
+  <node pkg="occupancy_grid" type="occupancy_grid" name="occupancy_grid">
+  </node>
+
+  <node pkg="occupancy_grid" type="addMarker" name="Object_marker">
+  </node>
+
+  <!-- Load Walls -->
+  <node pkg="map_representation" type="map_representation" name="map_representation" />
+
+  <!-- Path planning -->
+  <node pkg="ras_path_planning" type="astar.py" name="astar" respawn="true" output="screen">
+  </node>
+
+  <!-- Load Object detection -->
+  <!-- <node pkg="object_detection" type="object_detector.py" name="object_detector"/> -->
+
+  <!-- Load Object detection -->
+  <!--node pkg="ras_object_detection" type="object_position_estimation" name="object_position_estimation" output="screen" /-->
+
+  <!-- Load Lidar -->
+  <include file="$(find rplidar_ros)/launch/rplidar.launch" />
+
+  <!-- Load pure pursuit controller parameters -->
+  <rosparam command="load" file="$(find pure_pursuit_controller)/controller_params.yaml" />
+
+</launch>

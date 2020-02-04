@@ -1,0 +1,8 @@
+# Goal definition
+geometry_msgs/Pose[] intermediatePoints
+---
+# Result definition
+geometry_msgs/Vector3 pose
+---
+# Feedback
+int32 activeSegment

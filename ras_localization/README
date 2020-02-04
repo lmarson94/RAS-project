@@ -1,0 +1,6 @@
+1) run roscore
+2) run rosparam set /use_sim_time true
+3) run roslaunch ras_launch grid.launch map_file:="lab_maze_2018.txt"
+4) run rosrun ras_localization particle filter
+5) (cd into the folder contatining the rosbag) run rosbag play --clock laser_final.bag /odometry_increment:=/localisation/odometry/increment /odometry:=/localisation/odometry
+6) run rosrun rosrun occupancy_grid mapping

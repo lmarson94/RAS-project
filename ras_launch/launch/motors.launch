@@ -1,0 +1,25 @@
+<launch>
+
+  <!-- run the motors -->
+  <node pkg="phidgets" type="motor" name="right">
+    <param name="serial" value="490597"/>
+    <param name="name" value="right"/>
+    <param name="frequency" value="10"/>
+    <param name="invert_motor" value="true"/>
+  </node>
+  <node pkg="phidgets" type="motor" name="left">
+    <param name="serial" value="469411"/>
+    <param name="name" value="left"/>
+    <param name="frequency" value="10"/>
+  </node>
+
+  <!-- Load Object classification -->
+  <node pkg="ras_object_classification" type="object_classification.py" name="object_classification" />
+
+  <!-- Load Lidar -->
+  <include file="$(find rplidar_ros)/launch/rplidar.launch" />
+
+  <!-- Load Camera -->
+  <include file="$(find ras_camera)/launch/ras_camera_nodelet.launch" />
+
+</launch>

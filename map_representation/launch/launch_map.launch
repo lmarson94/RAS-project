@@ -1,0 +1,14 @@
+<launch>
+
+  <param name="map_file" value="$(find map_representation)/maps/$(arg map_file)"/>
+  <!-- load the map map_representation node -->
+  <node pkg="map_representation" type="map_representation" name="map_representation" output="screen">
+
+<!--ras_maze_map_representationmap_node-->
+
+  </node>
+
+  <!-- run rviz -->
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find map_representation)/rviz/map_rviz.rviz"/>
+
+</launch>

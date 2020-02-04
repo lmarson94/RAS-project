@@ -1,0 +1,5 @@
+# request
+sensor_msgs/Image inputImage  # image to be classified
+---
+uint8 clas # class which is predicted by the network 
+uint8 conf  # confidence of the estimation

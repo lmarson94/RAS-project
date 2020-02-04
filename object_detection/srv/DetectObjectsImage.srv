@@ -1,0 +1,3 @@
+sensor_msgs/Image inputImage
+---
+object_detection/msg_objects_detected detectionOut
